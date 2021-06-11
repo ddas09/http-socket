@@ -57,8 +57,8 @@ if __name__ == '__main__':
     server_port = 8000
     
     while True:
-        print("\n1. Index page\n2. Get all stocks\n3. Get stock by id", end="")
-        print("\n4. Insert new stock\n5. Update a stock\n6. Delete a stock\n7. Quit\n")
+        print("\n1. Index page\n2. Get all stocks\n3. Get stock by id")
+        print("4. Insert new stock\n5. Update a stock\n6. Delete a stock\n7. Quit\n")
         choice = input("Enter your choice: ")
         if choice == '7':
             sys.exit()
