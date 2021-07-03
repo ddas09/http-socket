@@ -16,16 +16,19 @@ def sendHttpRequest(choice, socket):
     elif choice == '4':
         symbol = input("Enter stock symbol: ")
         name = input("Enter stock name: ")
-        req_body = f'{{"symbol": "{symbol}", "name": "{name}"}}'
+        price = float(input("Enter stock price: "))
+        req_body = f'{{"symbol": "{symbol}", "name": "{name}", "price": {price}}}'
         data_length = len(req_body)
         req = "POST /api/stocks/ HTTP/1.1\r\nHost:localhost\r\nContent-Type: application/json"
         req += f"\r\nContent-Length:{data_length}\r\nConnection: close\r\n\r\n{req_body}"
 
     elif choice == '5':
         id = input("Enter the stock id to update: ")
-        symbol = input("Enter new symbol: ")
-        name = input("Enter new name: ")
-        req_body = f'{{"symbol": "{symbol}", "name": "{name}"}}'
+        symbol = input("Enter new stock symbol: ")
+        name = input("Enter new stock name: ")
+        price = float(input("Enter new stock price: "))
+        req_body = f'{{"symbol": "{symbol}", "name": "{name}", "price": {price}}}'
+        print(req_body)
         data_length = len(req_body)
         req = f"PUT /api/stocks/{id}/ HTTP/1.1\r\nHost:localhost\r\nContent-Type: application/json"
         req += f"\r\nContent-Length:{data_length}\r\nConnection: close\r\n\r\n{req_body}"
